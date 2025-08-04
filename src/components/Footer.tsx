@@ -99,7 +99,7 @@ const Footer = () => {
               <div>
                 <p className="text-gray-400 text-sm mb-2">Solana Address:</p>
                 <code className="bg-gray-800 p-2 rounded text-xs break-all block">
-                  7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
+                  Ca coming soon
                 </code>
               </div>
               <div className="space-y-2">

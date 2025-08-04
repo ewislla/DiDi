@@ -23,7 +23,7 @@ const FAQ = () => {
     {
       category: 'popular',
       question: 'How do I avoid scam tokens?',
-      answer: 'Always use our official contract address: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU. Verify this address on multiple block explorers and only purchase through official channels. Never trust DMs or unofficial links.'
+      answer: 'Always use our official contract address: Coming soon. Verify this address on multiple block explorers and only purchase through official channels. Never trust DMs or unofficial links.'
     },
     {
       category: 'popular',
@@ -192,12 +192,24 @@ const FAQ = () => {
             Join our community or reach out directly for personalized support
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+  href="http://t.me/DiDi_Coin"
+  target="_blank"
+  rel="noopener noreferrer"
+>
             <button className="bg-white text-[#FE751F] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
               Join Telegram
             </button>
+            </a>
+            <a
+  href="http://t.me/DiDi_Coin"
+  target="_blank"
+  rel="noopener noreferrer"
+>
             <button className="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-colors duration-300">
               Contact Support
             </button>
+            </a>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ Hop in  we're taking this Lambo straight to decentralization!
             </p>
           </div>
           <a
-  href="https://t.me/yourTelegramUsernameOrGroup"
+  href="hhttp://t.me/DiDi_Coin"
   target="_blank"
   rel="noopener noreferrer"
 >

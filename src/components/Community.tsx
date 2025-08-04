@@ -18,7 +18,7 @@ const Community = () => {
     {
       platform: 'Twitter/X',
       handle: '@DiDi_Memecoin',
-      followers: '15.2K',
+      
       icon: <Twitter className="w-8 h-8" />,
       color: 'bg-blue-500',
       hoverColor: 'hover:bg-blue-600'
@@ -26,19 +26,12 @@ const Community = () => {
     {
       platform: 'Telegram',
       handle: 't.me/DiDiMemecoin',
-      followers: '8.9K',
+   
       icon: <MessageCircle className="w-8 h-8" />,
       color: 'bg-blue-400',
       hoverColor: 'hover:bg-blue-500'
     },
-    {
-      platform: 'Discord',
-      handle: 'Coming Q1 2025',
-      followers: 'Soon',
-      icon: <Users className="w-8 h-8" />,
-      color: 'bg-purple-500',
-      hoverColor: 'hover:bg-purple-600'
-    }
+  
   ];
 
   const communityFeatures = [
