@@ -41,9 +41,16 @@ Think Uber  but powered by blockchain, bad jokes, and better vibes.
 Hop in  we're taking this Lambo straight to decentralization!
             </p>
           </div>
-          <button className="mt-8 group bg-[#FE751F] hover:bg-[#E5651C] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-            Join the Ride
-          </button>
+          <a
+  href="https://t.me/yourTelegramUsernameOrGroup"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-8 group bg-[#FE751F] hover:bg-[#E5651C] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+    Join the Ride
+  </button>
+</a>
+
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -68,14 +75,7 @@ Hop in  we're taking this Lambo straight to decentralization!
         {/* Stats Section */}
         <div className="mt-16 bg-gradient-to-r from-[#FE751F] to-[#0DB86A] rounded-2xl p-8 text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold mb-2">15.2K+</div>
-              <div className="text-sm opacity-90">Twitter Followers</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">8.9K+</div>
-              <div className="text-sm opacity-90">Telegram Members</div>
-            </div>
+            
             <div>
               <div className="text-3xl font-bold mb-2">500B</div>
               <div className="text-sm opacity-90">Total Supply</div>

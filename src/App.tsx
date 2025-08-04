@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
-import Roadmap from './components/Roadmap';
+// import Roadmap from './components/Roadmap';
 import Tokenomics from './components/Tokenomics';
 import HowToBuy from './components/HowToBuy';
 import FAQ from './components/FAQ';
@@ -35,7 +35,7 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Roadmap />
+        {/* <Roadmap /> */}
         <Tokenomics />
         <HowToBuy />
         <FAQ />

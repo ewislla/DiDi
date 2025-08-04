@@ -59,7 +59,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {['About', 'Roadmap', 'Tokenomics', 'Buy', 'FAQ'].map((item) => (
+            {['About', 'Tokenomics', 'Buy', 'FAQ'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -84,27 +84,21 @@ const Navigation = () => {
               {isDropdownOpen && (
                 <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 p-2 animate-in slide-in-from-top-2 duration-200">
                   <div className="space-y-1">
-                    <a href="#" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
+                    <a href="http://t.me/DiDi_Coin" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
                       <div className="flex items-center space-x-3">
                         <MessageCircle className="w-4 h-4 text-[#0088cc]" />
                         <span className="font-medium">Telegram</span>
                       </div>
-                      <span className="text-sm text-[#0DB86A] font-medium">8.9K members</span>
+                      
                     </a>
-                    <a href="#" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
+                    <a href="https://x.com/didi_coin?s=21" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
                       <div className="flex items-center space-x-3">
                         <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                         <span className="font-medium">Twitter/X</span>
                       </div>
-                      <span className="text-sm text-[#0DB86A] font-medium">15.2K followers</span>
+                      
                     </a>
-                    <a href="#" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
-                      <div className="flex items-center space-x-3">
-                        <Users className="w-4 h-4 text-[#5865F2]" />
-                        <span className="font-medium">Discord</span>
-                      </div>
-                      <span className="text-xs bg-gradient-to-r from-[#FE751F] to-[#0DB86A] text-white px-2 py-1 rounded-full font-medium">Soon</span>
-                    </a>
+                    
                   </div>
                 </div>
               )}
@@ -142,7 +136,7 @@ const Navigation = () => {
             
             {/* Navigation Items */}
             <div className="p-2">
-              {['About', 'Roadmap', 'Tokenomics', 'Buy', 'FAQ'].map((item, index) => (
+              {['About', 'Tokenomics', 'Buy', 'FAQ'].map((item, index) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
