@@ -25,21 +25,24 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-6">
-            Meet DiDi: The Rebel Frog Disrupting Rides
+            Meet $DiDi: The Rebel Frog Disrupting Rides
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-[#6B7280] leading-relaxed">
             <p>
-              DiDiCoin isn't just another memecoin—it's a movement. Born from frustration with 
-              corporate ride-sharing giants, DiDi represents the community-first, meme-powered 
-              future of transportation.
+              $DiDi coin is the turbo-charged meme token that fuels the future of ride-sharing  with less corporate greed and more community speed.
+
+
+
+
             </p>
             <p>
-              Forget Uber's 30% cuts. Forget corporate surveillance. DiDi runs on decentralized 
-              dreams and frog-fueled energy.
+              We're on a mission to turn every ride, vibe, and roadside snack stop into a chance to earn, meme, and move the world forward.
+Think Uber  but powered by blockchain, bad jokes, and better vibes.
+Hop in  we're taking this Lambo straight to decentralization!
             </p>
           </div>
           <button className="mt-8 group bg-[#FE751F] hover:bg-[#E5651C] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-            Discover DiDi's Story →
+            Join the Ride
           </button>
         </div>
 

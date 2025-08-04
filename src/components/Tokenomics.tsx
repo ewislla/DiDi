@@ -2,11 +2,11 @@ import React from 'react';
 import { Shield, Lock, TrendingUp, Users, Copy, ExternalLink } from 'lucide-react';
 
 const Tokenomics = () => {
-  const contractAddress = "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU";
+  const contractAddress = "Coming soon";
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
+    // Optional: Add toast or feedback message
   };
 
   const metrics = [
@@ -126,29 +126,6 @@ const Tokenomics = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Distribution Chart Placeholder */}
-        <div className="bg-gradient-to-r from-[#FE751F] to-[#0DB86A] rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Token Distribution</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div>
-              <div className="text-3xl font-bold mb-2">85%</div>
-              <div className="text-sm opacity-90">Liquidity Pool</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">10%</div>
-              <div className="text-sm opacity-90">Team (Vested)</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">3%</div>
-              <div className="text-sm opacity-90">Marketing</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">2%</div>
-              <div className="text-sm opacity-90">Development</div>
-            </div>
           </div>
         </div>
       </div>

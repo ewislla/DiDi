@@ -160,27 +160,21 @@ const Navigation = () => {
               <div className="px-4 py-4 border-t border-gray-100 mt-2">
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Community</h3>
                 <div className="space-y-2">
-                  <a href="#" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
+                  <a href="http://t.me/DiDi_Coin" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
                     <div className="flex items-center space-x-3">
                       <MessageCircle className="w-4 h-4 text-[#0088cc]" />
                       <span className="font-medium">Telegram</span>
                     </div>
-                    <span className="text-sm text-[#0DB86A] font-medium">8.9K</span>
+                    <span className="text-sm text-[#0DB86A] font-medium"></span>
                   </a>
-                  <a href="#" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
+                  <a href="https://x.com/didi_coin?s=2" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
                     <div className="flex items-center space-x-3">
                       <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                       <span className="font-medium">Twitter/X</span>
                     </div>
-                    <span className="text-sm text-[#0DB86A] font-medium">15.2K</span>
+                    
                   </a>
-                  <a href="#" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
-                    <div className="flex items-center space-x-3">
-                      <Users className="w-4 h-4 text-[#5865F2]" />
-                      <span className="font-medium">Discord</span>
-                    </div>
-                    <span className="text-xs bg-gradient-to-r from-[#FE751F] to-[#0DB86A] text-white px-2 py-1 rounded-full font-medium">Soon</span>
-                  </a>
+                
                 </div>
               </div>
             </div>
