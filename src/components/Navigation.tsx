@@ -59,7 +59,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {['About', 'Tokenomics', 'Buy', 'FAQ'].map((item) => (
+            {['About','Community' ,'Tokenomics', 'Buy', 'FAQ'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -136,7 +136,7 @@ const Navigation = () => {
             
             {/* Navigation Items */}
             <div className="p-2">
-              {['About', 'Tokenomics', 'Buy', 'FAQ'].map((item, index) => (
+              {['About', 'Community', 'Tokenomics', 'Buy', 'FAQ'].map((item, index) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}

@@ -2,17 +2,8 @@ import React, { useState } from 'react';
 import { Twitter, MessageCircle, Users, Mail, ExternalLink, TrendingUp } from 'lucide-react';
 
 const Community = () => {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      setEmail('');
-      // Here you would typically send the email to your backend
-    }
-  };
 
   const socialStats = [
     {
@@ -170,46 +161,7 @@ const Community = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="bg-gradient-to-r from-[#FE751F] to-[#0DB86A] rounded-2xl p-8 text-center text-white">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-4xl mb-4">🐸</div>
-            <h3 className="text-3xl font-bold mb-4">Stay in the Loop</h3>
-            <p className="text-xl mb-8 opacity-90">
-              Get weekly DiDi updates, exclusive memes, and alpha directly to your inbox
-            </p>
-            
-            {!isSubscribed ? (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-4 py-3 rounded-lg text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <button
-                  type="submit"
-                  className="bg-white text-[#FE751F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center space-x-2"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>Subscribe</span>
-                </button>
-              </form>
-            ) : (
-              <div className="bg-white/20 rounded-lg p-4 max-w-md mx-auto">
-                <div className="text-2xl mb-2">✅</div>
-                <p className="font-semibold">Thanks for subscribing!</p>
-                <p className="text-sm opacity-80">Check your email for confirmation</p>
-              </div>
-            )}
-            
-            <p className="text-sm opacity-80 mt-4">
-              ✅ 5,247 riders already subscribed • No spam, unsubscribe anytime
-            </p>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

@@ -35,11 +35,12 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Community />
         {/* <Roadmap /> */}
         <Tokenomics />
         <HowToBuy />
         <FAQ />
-        <Community />
+        
       </main>
       <Footer />
     </div>
