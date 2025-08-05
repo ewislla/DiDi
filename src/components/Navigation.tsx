@@ -5,35 +5,39 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({ days: 21, hours: 4, minutes: 32, seconds: 18 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  // ✅ Set your launch date here
+  const targetDate = new Date('2025-08-26T00:00:00'); // Update as needed
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    
-    // Countdown timer
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
     }, 1000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearInterval(timer);
+      clearInterval(countdown);
     };
-  }, []);
+  }, [targetDate]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -51,15 +55,15 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="text-2xl">🐸</div>
+          {/* ✅ Logo */}
+          <div className="flex items-center space-x-3">
+            <img src="/assets/logo.PNG" alt="DiDi Logo" className="w-10 h-10 object-contain" />
             <span className="text-xl font-bold text-[#1A1A1A]">$DiDi</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {['About','Community' ,'Tokenomics', 'Buy', 'FAQ'].map((item) => (
+            {['About', 'Community', 'Tokenomics', 'Buy', 'FAQ'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -69,8 +73,8 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FE751F] transition-all duration-200 group-hover:w-full"></span>
               </button>
             ))}
-            
-            {/* Community Dropdown */}
+
+            {/* Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -80,7 +84,7 @@ const Navigation = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FE751F] transition-all duration-200 group-hover:w-full"></span>
               </button>
-              
+
               {isDropdownOpen && (
                 <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 p-2 animate-in slide-in-from-top-2 duration-200">
                   <div className="space-y-1">
@@ -89,23 +93,20 @@ const Navigation = () => {
                         <MessageCircle className="w-4 h-4 text-[#0088cc]" />
                         <span className="font-medium">Telegram</span>
                       </div>
-                      
                     </a>
                     <a href="https://x.com/didi_coin?s=21" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 group">
                       <div className="flex items-center space-x-3">
                         <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                         <span className="font-medium">Twitter/X</span>
                       </div>
-                      
                     </a>
-                    
                   </div>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Launch Timer */}
+          {/* ✅ Launch Timer */}
           <div className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-[#FE751F] to-[#0DB86A] text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
             <Clock className="w-4 h-4" />
             <span>{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
@@ -123,25 +124,24 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Enhanced Mobile Menu */}
+        {/* ✅ Mobile Navigation Menu */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl mt-4 mb-4 shadow-xl border border-gray-100 overflow-hidden">
-            {/* Launch Timer - Mobile */}
+            {/* Timer */}
             <div className="bg-gradient-to-r from-[#FE751F] to-[#0DB86A] text-white p-4 flex items-center justify-center space-x-2">
               <Clock className="w-4 h-4" />
               <span className="font-medium">Launch in: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m</span>
             </div>
-            
-            {/* Navigation Items */}
+
+            {/* Navigation Links */}
             <div className="p-2">
               {['About', 'Community', 'Tokenomics', 'Buy', 'FAQ'].map((item, index) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
                   className="block w-full text-left px-4 py-4 text-[#1A1A1A] hover:bg-gray-50 transition-all duration-200 rounded-xl font-medium border-b border-gray-50 last:border-b-0 hover:text-[#FE751F] group"
-                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <div className="flex items-center justify-between">
                     <span>{item}</span>
@@ -149,8 +149,8 @@ const Navigation = () => {
                   </div>
                 </button>
               ))}
-              
-              {/* Community Section - Mobile */}
+
+              {/* Community Links */}
               <div className="px-4 py-4 border-t border-gray-100 mt-2">
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Community</h3>
                 <div className="space-y-2">
@@ -159,16 +159,13 @@ const Navigation = () => {
                       <MessageCircle className="w-4 h-4 text-[#0088cc]" />
                       <span className="font-medium">Telegram</span>
                     </div>
-                    <span className="text-sm text-[#0DB86A] font-medium"></span>
                   </a>
                   <a href="https://x.com/didi_coin?s=2" className="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200">
                     <div className="flex items-center space-x-3">
                       <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                       <span className="font-medium">Twitter/X</span>
                     </div>
-                    
                   </a>
-                
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ const Hero = () => {
     seconds: 0
   });
 
-  const launchDate = new Date("2025-08-26T18:00:00Z");
+  const launchDate = new Date("2025-08-26T00:00:00Z");
 
   useEffect(() => {
     const interval = setInterval(() => {
