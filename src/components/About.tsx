@@ -29,30 +29,26 @@ const About = () => {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-[#6B7280] leading-relaxed">
             <p>
-              $DiDi coin is the turbo-charged meme token that fuels the future of ride-sharing  with less corporate greed and more community speed.
-
-
-
-
+              $DiDi coin is the turbo-charged meme token that fuels the future of ride-sharing with less corporate greed and more community speed.
             </p>
             <p>
               We're on a mission to turn every ride, vibe, and roadside snack stop into a chance to earn, meme, and move the world forward.
-Think Uber  but powered by blockchain, bad jokes, and better vibes.
-Hop in  we're taking this Lambo straight to decentralization!
+              Think Uber but powered by blockchain, bad jokes, and better vibes.
+              Hop in—we're taking this Lambo straight to decentralization!
             </p>
           </div>
           <a
-  href="hhttp://t.me/DiDi_Coin"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button className="mt-8 group bg-[#FE751F] hover:bg-[#E5651C] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-    Join the Ride
-  </button>
-</a>
-
+            href="http://t.me/DiDi_Coin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="mt-8 group bg-[#FE751F] hover:bg-[#E5651C] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+              Join the Ride
+            </button>
+          </a>
         </div>
 
+        {/* Features */}
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
@@ -74,14 +70,13 @@ Hop in  we're taking this Lambo straight to decentralization!
 
         {/* Stats Section */}
         <div className="mt-16 bg-gradient-to-r from-[#FE751F] to-[#0DB86A] rounded-2xl p-8 text-white">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-8 justify-center text-center">
             <div>
-              <div className="text-3xl font-bold mb-2">500B</div>
+              <div className="text-4xl font-bold mb-2">500B</div>
               <div className="text-sm opacity-90">Total Supply</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">100%</div>
+              <div className="text-4xl font-bold mb-2">100%</div>
               <div className="text-sm opacity-90">Community Owned</div>
             </div>
           </div>

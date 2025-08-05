@@ -104,7 +104,7 @@ const Hero = () => {
               </a>
 
               <div className="bg-white border-2 border-[#FE751F] text-[#1A1A1A] px-6 py-4 rounded-lg font-semibold text-lg text-center shadow-md">
-                <div className="text-sm font-bold text-[#FE751F] mb-1">🚀 Launching Soon</div>
+                <div className="text-sm font-bold text-[#FE751F] mb-1">Launching Soon</div>
                 <div className="font-mono text-base text-[#0DB86A]">
                   {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
                 </div>

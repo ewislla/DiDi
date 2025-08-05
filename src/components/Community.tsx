@@ -6,7 +6,7 @@ const Community = () => {
     {
       platform: 'Twitter/X',
       handle: '@DiDi_coin',
-      link: 'https://x.com/didi_coin?s=21', 
+      link: 'https://x.com/didi_coin?s=21',
       icon: <Twitter className="w-8 h-8" />,
       color: 'bg-blue-500',
       hoverColor: 'hover:bg-blue-600'
@@ -18,7 +18,7 @@ const Community = () => {
       icon: <MessageCircle className="w-8 h-8" />,
       color: 'bg-blue-400',
       hoverColor: 'hover:bg-blue-500'
-    },
+    }
   ];
 
   const communityFeatures = [
@@ -58,7 +58,7 @@ const Community = () => {
         </div>
 
         {/* Social Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 justify-center">
           {socialStats.map((social, index) => (
             <div
               key={index}
@@ -71,10 +71,7 @@ const Community = () => {
                 {social.platform}
               </h3>
               <p className="text-[#6B7280] mb-4">{social.handle}</p>
-              <div className="flex items-center justify-between">
-                <div>
-                
-                </div>
+              <div className="flex justify-end">
                 <a
                   href={social.link}
                   target="_blank"
