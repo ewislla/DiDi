@@ -100,7 +100,7 @@ const Tokenomics: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Visual Chart */}
+          {/* Visual Chart with image */}
           <motion.div
             className="animate-fade-in-right flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 60 }}
@@ -111,15 +111,15 @@ const Tokenomics: React.FC = () => {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 text-center">
                 <div className="relative mx-auto w-64 h-64 mb-8">
-                  {/* Pie Chart Visual */}
-                  <div className="w-full h-full rounded-full relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-conic from-red-400 via-blue-400 to-green-400 rounded-full animate-spin-slow"></div>
-                    <div className="absolute inset-4 bg-orange-600 rounded-full flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2 text-white font-bold">$DIDI</div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Replace pie chart with image */}
+                  <motion.img
+                    src="/assets/token.jpeg"
+                    alt="$DIDI Circle"
+                    className="w-full h-full object-contain rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  />
                 </div>
 
                 <div className="space-y-4">

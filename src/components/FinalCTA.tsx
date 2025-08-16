@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaTelegram, FaTwitter, FaArrowRight } from "react-icons/fa6";
-import heroImage from "/assets/hero.png"; // make sure this path is correct
+import heroImage from "/assets/cta.jpeg"; // make sure this path is correct
 
 const FinalCTA: React.FC = () => {
   return (
