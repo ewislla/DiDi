@@ -4,7 +4,7 @@ import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 14,
+    days: 11,
     hours: 0,
     minutes: 0,
     seconds: 0,
