@@ -9,6 +9,7 @@ import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer'
 import SectionDivider from './components/SectionDivider';
+import Community from './components/Community'; 
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,8 @@ function App() {
       
       <SectionDivider />
       <Tokenomics />
+
+      <Community /> 
       
       <SectionDivider flip />
       <HowToBuy />
