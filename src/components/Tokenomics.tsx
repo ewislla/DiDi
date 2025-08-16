@@ -1,131 +1,129 @@
-import React from 'react';
-import { Shield, Lock, TrendingUp, Users, Copy, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { PieChart, Shield, Users, Flame } from 'lucide-react';
 
-const Tokenomics = () => {
-  const contractAddress = "Coming soon";
+const Tokenomics: React.FC = () => {
+  const [hoveredSection, setHoveredSection] = useState<number | null>(null);
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    // Optional: Add toast or feedback message
-  };
-
-  const metrics = [
-    { label: "Total Supply", value: "500B", subtext: "$DiDi", icon: <TrendingUp className="w-6 h-6" /> },
-    { label: "Liquidity", value: "15 SOL", subtext: "🔒 Locked", icon: <Lock className="w-6 h-6" /> },
-    { label: "Market Cap", value: "Live", subtext: "📈 Chart", icon: <TrendingUp className="w-6 h-6" /> },
-    { label: "Ownership", value: "Renounced", subtext: "Immutable", icon: <Shield className="w-6 h-6" /> },
-    { label: "Team Tokens", value: "6mo Vest", subtext: "Gradual", icon: <Users className="w-6 h-6" /> },
-    { label: "Burn Rate", value: "1% per tx", subtext: "Deflationary", icon: <TrendingUp className="w-6 h-6" /> }
-  ];
-
-  const trustIndicators = [
+  const tokenData = [
     {
-      title: "LP Burned",
-      description: "Liquidity permanently locked on Raydium",
-      status: "verified"
+      id: 1,
+      label: "LP Tokens",
+      value: "100% Burned",
+      percentage: 40,
+      color: "text-red-400",
+      bgColor: "bg-red-400",
+      icon: <Flame className="w-6 h-6" />
     },
     {
-      title: "Ownership Renounced",
-      description: "Contract cannot be modified",
-      status: "verified"
+      id: 2,
+      label: "Community",
+      value: "Community-focused",
+      percentage: 35,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400",
+      icon: <Users className="w-6 h-6" />
     },
     {
-      title: "Team Vesting",
-      description: "6-month linear unlock prevents dumps",
-      status: "verified"
-    },
-    {
-      title: "Audit Complete",
-      description: "Security verified by CertiK",
-      status: "verified"
-    },
-    {
-      title: "Transparent",
-      description: "All transactions publicly viewable",
-      status: "verified"
+      id: 3,
+      label: "Ownership",
+      value: "Renounced",
+      percentage: 25,
+      color: "text-green-400",
+      bgColor: "bg-green-400",
+      icon: <Shield className="w-6 h-6" />
     }
   ];
 
   return (
-    <section id="tokenomics" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 relative">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-6">
-            🧮 Tokenomics Dashboard
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-wider animate-fade-up">
+            Tokenomics
           </h2>
-          <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
-            Complete transparency. Zero surprises. Pure community ownership.
-          </p>
         </div>
 
-        {/* Key Metrics Dashboard */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
-          {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-[#FFF4E6] to-white p-6 rounded-2xl border-2 border-[#FE751F]/20 hover:border-[#FE751F] transition-all duration-300 hover:shadow-lg"
-            >
-              <div className="text-[#FE751F] mb-3">
-                {metric.icon}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Stats */}
+          <div className="animate-fade-in-left">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20">
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-8 uppercase">
+                Token Details
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="flex justify-between items-center py-4 border-b border-white/20">
+                  <span className="text-white/80 text-lg">Total Supply:</span>
+                  <span className="text-white font-bold text-lg">500,000,000,000</span>
+                </div>
+                
+                {tokenData.map((item) => (
+                  <div 
+                    key={item.id}
+                    className="flex justify-between items-center py-4 border-b border-white/20 hover:bg-white/5 rounded-lg px-4 transition-all duration-300 cursor-pointer"
+                    onMouseEnter={() => setHoveredSection(item.id)}
+                    onMouseLeave={() => setHoveredSection(null)}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`${item.color}`}>
+                        {item.icon}
+                      </div>
+                      <span className="text-white/80 text-lg">{item.label}:</span>
+                    </div>
+                    <span className="text-white font-bold text-lg">{item.value}</span>
+                  </div>
+                ))}
               </div>
-              <div className="text-sm text-[#6B7280] mb-1">{metric.label}</div>
-              <div className="text-2xl font-bold text-[#1A1A1A] mb-1">{metric.value}</div>
-              <div className="text-sm text-[#0DB86A]">{metric.subtext}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Contract Information */}
-        <div className="bg-[#1A1A1A] rounded-2xl p-8 mb-16 text-white">
-          <h3 className="text-2xl font-bold mb-6 text-center">Contract Address</h3>
-          <div className="bg-white/10 rounded-lg p-4 flex items-center justify-between">
-            <code className="text-sm md:text-base font-mono break-all">{contractAddress}</code>
-            <div className="flex space-x-2 ml-4">
-              <button
-                onClick={() => copyToClipboard(contractAddress)}
-                className="p-2 bg-[#FE751F] hover:bg-[#E5651C] rounded-lg transition-colors duration-200"
-                title="Copy to clipboard"
-              >
-                <Copy className="w-4 h-4" />
-              </button>
-              <a
-                href={`https://solscan.io/token/${contractAddress}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-[#0DB86A] hover:bg-[#059669] rounded-lg transition-colors duration-200"
-                title="View on Solscan"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              
+              <div className="mt-8 text-center">
+                <p className="text-yellow-300 font-semibold text-lg">
+                  Distribution: Transparent & community-focused
+                </p>
+              </div>
             </div>
           </div>
-          <p className="text-center text-sm text-gray-300 mt-4">
-            ⚠️ Always verify this address before purchasing. Beware of scam tokens!
-          </p>
-        </div>
 
-        {/* Trust Indicators */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-[#1A1A1A] text-center mb-8">
-            🛡️ Trust & Security
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {trustIndicators.map((indicator, index) => (
-              <div
-                key={index}
-                className="bg-[#FFF4E6] p-6 rounded-2xl border-l-4 border-[#0DB86A] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-[#0DB86A] rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[#1A1A1A] mb-2">{indicator.title}</h4>
-                    <p className="text-[#6B7280] text-sm leading-relaxed">{indicator.description}</p>
+          {/* Visual Chart */}
+          <div className="animate-fade-in-right">
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 text-center">
+                <div className="relative mx-auto w-64 h-64 mb-8">
+                  {/* Pie Chart Visual */}
+                  <div className="w-full h-full rounded-full relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-conic from-red-400 via-blue-400 to-green-400 rounded-full animate-spin-slow"></div>
+                    <div className="absolute inset-4 bg-orange-600 rounded-full flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-4xl mb-2">🐸</div>
+                        <div className="text-white font-bold text-sm">$DIDI</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                
+                <div className="space-y-4">
+                  {tokenData.map((item) => (
+                    <div 
+                      key={item.id}
+                      className={`flex items-center justify-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
+                        hoveredSection === item.id ? 'bg-white/20 scale-105' : 'bg-white/5'
+                      }`}
+                    >
+                      <div className={`w-4 h-4 rounded-full ${item.bgColor}`}></div>
+                      <span className="text-white font-semibold">{item.label}</span>
+                      <span className="text-white/70">({item.percentage}%)</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+              
+              {/* Floating frog watermark */}
+              <div className="absolute -top-8 -right-8 text-6xl opacity-20 animate-float">
+                🐸
+              </div>
+              <div className="absolute -bottom-8 -left-8 text-4xl opacity-10 animate-float-delayed">
+                🚕
+              </div>
+            </div>
           </div>
         </div>
       </div>
