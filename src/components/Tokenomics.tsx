@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaFire, FaUsers, FaShieldAlt } from 'react-icons/fa6';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaFire, FaUsers, FaShieldAlt } from "react-icons/fa";
 
 const Tokenomics: React.FC = () => {
   const [hoveredSection, setHoveredSection] = useState<number | null>(null);
@@ -36,9 +36,13 @@ const Tokenomics: React.FC = () => {
   ];
 
   return (
-    <section id="tokenomics" className="py-20 lg:py-32 relative bg-[#EA9105] overflow-hidden">
+    <section
+      id="tokenomics"
+      className="py-20 lg:py-32 relative bg-[#EA9105] overflow-hidden"
+    >
       <div className="container mx-auto px-6">
-        <motion.div 
+        {/* Heading */}
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,6 +57,7 @@ const Tokenomics: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Stats */}
           <motion.div
+            className="animate-fade-in-left"
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -62,31 +67,31 @@ const Tokenomics: React.FC = () => {
               <h3 className="text-2xl md:text-3xl font-black text-white mb-8 uppercase">
                 Token Details
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex justify-between items-center py-4 border-b border-white/20">
                   <span className="text-white/80 text-lg">Total Supply:</span>
-                  <span className="text-white font-bold text-lg">500,000,000,000</span>
+                  <span className="text-white font-bold text-lg">
+                    500,000,000,000
+                  </span>
                 </div>
-                
+
                 {tokenData.map((item) => (
-                  <div 
+                  <div
                     key={item.id}
                     className="flex justify-between items-center py-4 border-b border-white/20 hover:bg-white/5 rounded-lg px-4 transition-all duration-300 cursor-pointer"
                     onMouseEnter={() => setHoveredSection(item.id)}
                     onMouseLeave={() => setHoveredSection(null)}
                   >
                     <div className="flex items-center space-x-3">
-                      <div className={`${item.color}`}>
-                        {item.icon}
-                      </div>
+                      <div className={`${item.color}`}>{item.icon}</div>
                       <span className="text-white/80 text-lg">{item.label}:</span>
                     </div>
                     <span className="text-white font-bold text-lg">{item.value}</span>
                   </div>
                 ))}
               </div>
-              
+
               <div className="mt-8 text-center">
                 <p className="text-yellow-300 font-semibold text-lg">
                   Distribution: Transparent & community-focused
@@ -97,7 +102,7 @@ const Tokenomics: React.FC = () => {
 
           {/* Visual Chart */}
           <motion.div
-            className="flex justify-center lg:justify-end"
+            className="animate-fade-in-right flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -106,6 +111,7 @@ const Tokenomics: React.FC = () => {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 text-center">
                 <div className="relative mx-auto w-64 h-64 mb-8">
+                  {/* Pie Chart Visual */}
                   <div className="w-full h-full rounded-full relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-conic from-red-400 via-blue-400 to-green-400 rounded-full animate-spin-slow"></div>
                     <div className="absolute inset-4 bg-orange-600 rounded-full flex items-center justify-center">
@@ -115,13 +121,13 @@ const Tokenomics: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   {tokenData.map((item) => (
                     <motion.div
                       key={item.id}
                       className={`flex items-center justify-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                        hoveredSection === item.id ? 'bg-white/20 scale-105' : 'bg-white/5'
+                        hoveredSection === item.id ? "bg-white/20 scale-105" : "bg-white/5"
                       }`}
                       whileHover={{ scale: 1.05 }}
                     >
@@ -132,6 +138,22 @@ const Tokenomics: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Optional floating icons */}
+              <motion.div
+                className="absolute -top-8 -right-8"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4 }}
+              >
+                <FaFire className="w-10 h-10 text-red-400" />
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-8 -left-8"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, delay: 1 }}
+              >
+                <FaUsers className="w-10 h-10 text-blue-400" />
+              </motion.div>
             </div>
           </motion.div>
         </div>

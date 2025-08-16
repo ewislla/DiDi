@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
@@ -21,9 +22,7 @@ const Hero: React.FC = () => {
       const hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       setTimeLeft({ days, hours, minutes, seconds });
@@ -41,7 +40,7 @@ const Hero: React.FC = () => {
     <section
       className="relative min-h-screen flex flex-col md:flex-row items-center justify-between pt-24 px-6 overflow-hidden bg-[#EA9105] font-['Helvetica_Rounded','Nunito',sans-serif]"
     >
-      {/* Transparent background mascot on the right */}
+      {/* Transparent background mascot */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden md:block">
         <img
           src="/assets/hero.png"
@@ -62,7 +61,7 @@ const Hero: React.FC = () => {
           The turbo-charged memecoin that turns every trip into a win.
         </p>
         <p className="text-xl md:text-2xl font-bold text-white mb-8">
-          🚦 Launching in 2 weeks — buckle up, degen.
+          Launching in 2 weeks — buckle up, degen.
         </p>
 
         {/* Countdown */}
@@ -104,14 +103,19 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Right side: Main mascot (comes first on mobile) */}
-      <div className="relative z-10 mt-12 md:mt-0 flex justify-center md:justify-end w-full md:w-auto order-first md:order-last">
+      {/* Right side: Main mascot driving in */}
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ type: "tween", duration: 3, ease: "easeOut" }}
+        className="relative z-10 mt-12 md:mt-0 flex justify-center md:justify-end w-full md:w-auto order-first md:order-last"
+      >
         <img
           src="/assets/about.png"
           alt="$DIDI mascot"
           className="w-64 md:w-80 lg:w-96 drop-shadow-2xl"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

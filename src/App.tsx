@@ -7,6 +7,7 @@ import Tokenomics from './components/Tokenomics';
 import HowToBuy from './components/HowToBuy';
 import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
+import Footer from './components/Footer'
 import SectionDivider from './components/SectionDivider';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     document.title = '$DIDI - Ride to Earn Memecoin on Solana';
     
     // Add grain texture background
-    document.body.style.backgroundColor = '#FF741F';
+    document.body.style.backgroundColor = '#EA9105';
     document.body.style.backgroundImage = `
       radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
       radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 1px, transparent 1px),
@@ -54,6 +55,7 @@ function App() {
       
       <SectionDivider flip />
       <FinalCTA />
+      <Footer />
     </div>
   );
 }

@@ -1,99 +1,108 @@
-import React from 'react';
-import { Wallet, Download, ShoppingCart, TrendingUp } from 'lucide-react';
+import React from "react";
+import { Wallet, Download, ShoppingCart, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
 
 const HowToBuy: React.FC = () => {
   const steps = [
     {
       id: 1,
-      icon: <Download className="w-12 h-12" />,
+      icon: <Download className="w-12 h-12 text-white" />,
       title: "Get a Solana wallet",
-      description: "(Phantom/Solflare)",
-      emoji: "📱"
+      description: "Phantom or Solflare",
     },
     {
       id: 2,
-      icon: <Wallet className="w-12 h-12" />,
+      icon: <Wallet className="w-12 h-12 text-white" />,
       title: "Load up with SOL",
       description: "Fuel for the ride",
-      emoji: "⛽"
     },
     {
       id: 3,
-      icon: <ShoppingCart className="w-12 h-12" />,
+      icon: <ShoppingCart className="w-12 h-12 text-white" />,
       title: "On launch day, buy on Raydium",
       description: "When the gates open",
-      emoji: "🚀"
     },
     {
       id: 4,
-      icon: <TrendingUp className="w-12 h-12" />,
+      icon: <TrendingUp className="w-12 h-12 text-white" />,
       title: "HODL and enjoy the ride",
       description: "Destination: Moon",
-      emoji: "🌙"
-    }
+    },
   ];
 
   return (
-    <section className="py-20 lg:py-32 relative">
+    <section className="py-20 lg:py-32 relative bg-[#EA9105] overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-8 uppercase tracking-wider animate-fade-up">
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 uppercase tracking-wider">
             How to Buy
           </h2>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
             Buying $DIDI is easier than hailing a cab:
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Steps */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {steps.map((step, index) => (
-            <div 
+            <motion.div
               key={step.id}
-              className="text-center animate-fade-up group"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="text-center relative"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-3xl p-8 hover:bg-white/20 hover:scale-105 transform transition-all duration-300 hover:border-white/50">
+              <div className="bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-3xl p-8 hover:bg-white/20 hover:scale-105 transform transition-all duration-300 cursor-pointer">
                 {/* Step Number */}
                 <div className="bg-yellow-400 text-orange-600 rounded-full w-12 h-12 flex items-center justify-center font-black text-xl mx-auto mb-6">
                   {step.id}
                 </div>
-                
-                {/* Icon and Emoji */}
-                <div className="mb-6">
-                  <div className="text-white mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                    {step.icon}
-                  </div>
-                  <div className="text-4xl">{step.emoji}</div>
+
+                {/* Icon */}
+                <div className="mb-6 flex justify-center">
+                  {step.icon}
                 </div>
-                
+
                 {/* Content */}
-                <h3 className="text-white font-black text-lg mb-3 uppercase">
+                <h3 className="text-white font-black text-lg mb-2 uppercase">
                   {step.title}
                 </h3>
-                <p className="text-white/80 text-sm">
-                  {step.description}
-                </p>
+                <p className="text-white/80 text-sm">{step.description}</p>
               </div>
-              
-              {/* Connection Arrow (hidden on mobile) */}
+
+              {/* Connection Arrow for Desktop */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
                   <div className="text-white/50 text-2xl">→</div>
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Frog Illustration */}
-        <div className="text-center mt-16">
+        {/* Illustration / CTA */}
+        <motion.div
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 inline-block">
-            <div className="text-8xl mb-4 animate-bounce">🐸</div>
+            <Wallet className="w-16 h-16 text-white mx-auto mb-4" />
             <p className="text-white font-bold text-lg uppercase">
               Ready to hop in?
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
