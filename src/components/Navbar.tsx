@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#FF741F] text-white flex items-center justify-between px-6 py-4">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#EA9105] text-white flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="font-extrabold text-xl tracking-wide">
           $DIDI
@@ -46,7 +46,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/80 text-white z-50 transform transition-transform duration-300 ease-in-out 
+        className={`fixed inset-0 bg-[#EA9105] text-white z-50 transform transition-transform duration-300 ease-in-out 
           ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'} `}
       >
         <div className="absolute top-4 right-6">
