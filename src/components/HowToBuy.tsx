@@ -19,7 +19,7 @@ const HowToBuy: React.FC = () => {
     {
       id: 3,
       icon: <ShoppingCart className="w-12 h-12 text-white" />,
-      title: "On launch day, buy on Raydium",
+      title: "On launch day, buy on Pump.fun",
       description: "When the gates open",
     },
     {

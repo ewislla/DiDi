@@ -3,35 +3,25 @@ import { motion } from "framer-motion";
 import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
-    // 🎯 Target launch date (change if needed)
-    const targetDate = new Date("2025-08-28T00:00:00");
+    // 🎯 Target launch date (Aug 28, 2025 at local midnight)
+    const targetDate = new Date(2025, 7, 26, 0, 0, 0); 
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.ceil(distance / (1000 * 60 * 60 * 24)); // round up
 
       if (distance > 0) {
-        setTimeLeft({ days, hours, minutes, seconds });
+        setDaysLeft(days);
       } else {
         clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setDaysLeft(0);
       }
-    }, 1000);
+    }, 1000); // update every second
 
     return () => clearInterval(timer);
   }, []);
@@ -64,20 +54,18 @@ const Hero: React.FC = () => {
           Launching Soon — buckle up, degen.
         </p>
 
-        {/* Countdown */}
-        <div className="mb-8 flex justify-center md:justify-start space-x-4">
-          {Object.entries(timeLeft).map(([unit, value]) => (
-            <div key={unit} className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-2 border-white/30 shadow-lg">
-                <div className="text-2xl md:text-4xl lg:text-6xl font-black text-white">
-                  {String(value).padStart(2, "0")}
-                </div>
-              </div>
-              <div className="text-xs md:text-sm text-white/80 mt-2 uppercase font-semibold">
-                {unit}
+        {/* Countdown (Days only) */}
+        <div className="mb-8 flex justify-center md:justify-start">
+          <div className="text-center">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/30 shadow-lg">
+              <div className="text-4xl md:text-6xl lg:text-7xl font-black text-white">
+                {daysLeft}
               </div>
             </div>
-          ))}
+            <div className="text-sm md:text-base text-white/80 mt-2 uppercase font-semibold">
+              Days Remaining
+            </div>
+          </div>
         </div>
 
         {/* CTA Buttons */}

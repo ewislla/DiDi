@@ -36,7 +36,7 @@ const About: React.FC = () => {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, delay: 1 }}
               >
-                RAY
+               Pump.fun
               </motion.div>
             </div>
           </motion.div>

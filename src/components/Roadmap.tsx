@@ -19,7 +19,7 @@ const Roadmap: React.FC = () => {
     {
       id: 3,
       icon: <FaChartLine className="w-6 h-6" />,
-      title: "List on Raydium",
+      title: "List on Pump.fun",
       description: "Let the chaos begin"
     },
     {
