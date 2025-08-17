@@ -10,29 +10,23 @@ const Tokenomics: React.FC = () => {
       id: 1,
       label: "LP Tokens",
       value: "100% Burned",
-      percentage: 40,
       color: "text-red-400",
-      bgColor: "bg-red-400",
-      icon: <FaFire className="w-6 h-6" />
+      icon: <FaFire className="w-6 h-6" />,
     },
     {
       id: 2,
       label: "Community",
       value: "Community-focused",
-      percentage: 35,
       color: "text-blue-400",
-      bgColor: "bg-blue-400",
-      icon: <FaUsers className="w-6 h-6" />
+      icon: <FaUsers className="w-6 h-6" />,
     },
     {
       id: 3,
       label: "Ownership",
       value: "Renounced",
-      percentage: 25,
       color: "text-green-400",
-      bgColor: "bg-green-400",
-      icon: <FaShieldAlt className="w-6 h-6" />
-    }
+      icon: <FaShieldAlt className="w-6 h-6" />,
+    },
   ];
 
   return (
@@ -100,7 +94,7 @@ const Tokenomics: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Visual Chart with image */}
+          {/* Visual with image */}
           <motion.div
             className="animate-fade-in-right flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 60 }}
@@ -111,7 +105,6 @@ const Tokenomics: React.FC = () => {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 text-center">
                 <div className="relative mx-auto w-64 h-64 mb-8">
-                  {/* Replace pie chart with image */}
                   <motion.img
                     src="/assets/token.jpeg"
                     alt="$DIDI Circle"
@@ -122,24 +115,16 @@ const Tokenomics: React.FC = () => {
                   />
                 </div>
 
-                <div className="space-y-4">
-                  {tokenData.map((item) => (
-                    <motion.div
-                      key={item.id}
-                      className={`flex items-center justify-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                        hoveredSection === item.id ? "bg-white/20 scale-105" : "bg-white/5"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className={`w-4 h-4 rounded-full ${item.bgColor}`}></div>
-                      <span className="text-white font-semibold">{item.label}</span>
-                      <span className="text-white/70">({item.percentage}%)</span>
-                    </motion.div>
-                  ))}
+                {/* ✅ Replaced token breakdown with text */}
+                <div className="mt-6">
+                  <p className="text-white font-semibold text-lg">
+                    Why pay surge pricing to ride with giants… <br />
+                    when you can moon for free with memes?
+                  </p>
                 </div>
               </div>
 
-              {/* Optional floating icons */}
+              {/* Floating icons */}
               <motion.div
                 className="absolute -top-8 -right-8"
                 animate={{ y: [0, -10, 0] }}
