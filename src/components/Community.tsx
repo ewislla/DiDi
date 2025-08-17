@@ -32,7 +32,7 @@ export default function Community() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          The countdown has begun — 10 days until launch.  
+    
           $DIDI isn’t just another meme coin… it’s a movement.  
           We’re taking on Uber and the corporate giants with community power, memes, and zero surge pricing.
         </motion.p>

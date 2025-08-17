@@ -66,7 +66,7 @@ const Tokenomics: React.FC = () => {
                 <div className="flex justify-between items-center py-4 border-b border-white/20">
                   <span className="text-white/80 text-lg">Total Supply:</span>
                   <span className="text-white font-bold text-lg">
-                    500,000,000,000
+                    1,000,000,000
                   </span>
                 </div>
 
