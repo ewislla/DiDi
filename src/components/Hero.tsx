@@ -4,15 +4,15 @@ import { FaTelegram, FaXTwitter } from "react-icons/fa6";
 
 const Hero: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 11,
+    days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
 
   useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 14);
+    // 🎯 Target launch date (change if needed)
+    const targetDate = new Date("2025-08-28T00:00:00");
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -25,9 +25,9 @@ const Hero: React.FC = () => {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      setTimeLeft({ days, hours, minutes, seconds });
-
-      if (distance < 0) {
+      if (distance > 0) {
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
         clearInterval(timer);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
           The turbo-charged memecoin that turns every trip into a win.
         </p>
         <p className="text-xl md:text-2xl font-bold text-white mb-8">
-          Launching in 2 weeks — buckle up, degen.
+          Launching on Soon — buckle up, degen.
         </p>
 
         {/* Countdown */}
