@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
           The turbo-charged memecoin that turns every trip into a win.
         </p>
         <p className="text-xl md:text-2xl font-bold text-white mb-8">
-          Launching on Soon — buckle up, degen.
+          Launching Soon — buckle up, degen.
         </p>
 
         {/* Countdown */}
