@@ -79,8 +79,6 @@ const Roadmap: React.FC = () => {
                       <p className="text-white/80 text-sm">{step.description}</p>
                     </div>
                   </div>
-                  {/* Connection Point */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-10 w-4 h-4 bg-yellow-400 rounded-full border-4 border-orange-600"></div>
                 </motion.div>
               ))}
             </div>
