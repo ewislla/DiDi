@@ -58,10 +58,7 @@ const Roadmap: React.FC = () => {
         {/* Desktop Roadmap */}
         <div className="hidden lg:block">
           <div className="relative">
-            {/* Road Line */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/40 transform -translate-y-1/2"></div>
-            
-            <div className="flex justify-between items-center relative">
+            <div className="flex justify-between items-center relative"></div>
               {roadmapSteps.map((step, index) => (
                 <motion.div
                   key={step.id}
