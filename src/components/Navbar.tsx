@@ -12,6 +12,7 @@ const Navbar = () => {
     { label: 'Tokenomics', href: '#tokenomics' },
     { label: 'How to Buy', href: '#howtobuy' },
     { label: 'FAQ', href: '#faq' },
+    { label: 'Whitepaper', href: '/assets/$DIDI Whitepaper.pdf', download: true },
   ];
 
   return (
@@ -29,6 +30,7 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
+              {...(link.download && { download: true })}
               className="hover:text-yellow-200 transition-colors duration-200"
             >
               {link.label}
@@ -61,6 +63,7 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
+              {...(link.download && { download: true })}
               onClick={() => setMenuOpen(false)}
               className="hover:text-yellow-200 transition-colors duration-200"
             >

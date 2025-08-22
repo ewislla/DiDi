@@ -9,6 +9,7 @@ const Footer: React.FC = () => {
     { name: "Roadmap", href: "#roadmap" },
     { name: "Tokenomics", href: "#tokenomics" },
     { name: "How to Buy", href: "#howtobuy" },
+    { name: "Whitepaper", href: "/assets/$DIDI Whitepaper.pdf", download: true },
   ];
 
   const socials = [
@@ -53,6 +54,7 @@ const Footer: React.FC = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
+                  {...(link.download && { download: true })}
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
                   {link.name}
